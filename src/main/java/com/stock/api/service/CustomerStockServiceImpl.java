@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +25,10 @@ public class CustomerStockServiceImpl implements CustomerStockService {
 	
 	@Autowired
 	private CustomerStockRepository customerStockRepository;
+	private static final Logger logger = LoggerFactory.getLogger(CustomerStockServiceImpl.class);
 	
 	/**
-	 * 
+	 *  implementation of getting customer purchased stocks
 	 * @param customerId-NotNull
 	 * @return CustomerStockResDto -list of customer purchased stocks
 	 * @exception InvalidUserException
@@ -34,17 +37,19 @@ public class CustomerStockServiceImpl implements CustomerStockService {
 	@Override
 	public List<CustomerStockResDto> getPurchasedStocks(Integer customerId) {
 	Optional<List<CustomerStock>> customerStock=customerStockRepository.findByCustomerId(customerId);
+	logger.info(":: Enter into getPurchasedStocks()----- ");
 	if(customerStock.isPresent()) {
 		List<CustomerStock> purchasedList=customerStock.get();
 		List<CustomerStockResDto> cusPurchasedList=new ArrayList<>();
 		purchasedList.forEach(stocks->{
+			logger.info(":: valid customer purchase history-----::={}",stocks.getStockName());
 			CustomerStockResDto customerStockResDto=new CustomerStockResDto(stocks.getStockId(), stocks.getStockName(),
 					stocks.getQuantity(), stocks.getTotalPrice(), stocks.getPurchasedDate());
 			cusPurchasedList.add(customerStockResDto);
 		});
 		return cusPurchasedList;
 	}else {
-		throw new InvalidUserException(StockUtil.INVALID_USER_EXCEPTION);
+		throw new InvalidUserException(StockUtil.INVALID_CUSTOMER_EXCEPTION);
 	}
 		
 	}
