@@ -1,5 +1,6 @@
 package com.stock.api.dto;
 
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,8 +8,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-public class LoginRequestDto {
+public class LoginResponseDto {
 
-	private String email;
-	private String password;
+	private String message;
+	private int statusCode;
+	private int customerId;
+
 }

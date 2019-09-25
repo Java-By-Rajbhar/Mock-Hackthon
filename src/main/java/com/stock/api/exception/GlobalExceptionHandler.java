@@ -10,17 +10,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-	
-	  @ExceptionHandler(InvalidUserException.class) public
-	  ResponseEntity<ErrorResponse> globalExceptionHandler(InvalidUserException
-	  exception,WebRequest request) { 
-	ErrorResponse errorResponse = new ErrorResponse(exception.getMessage(), HttpStatus.NOT_FOUND.value(),request.getDescription(false));
-	  
-	  return new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
-	  
-	  }
-	 
+	@ExceptionHandler(InvalidUserException.class)
+	public ResponseEntity<ErrorResponse> globalExceptionHandler(InvalidUserException exception, WebRequest request) {
+		ErrorResponse errorResponse = new ErrorResponse(exception.getMessage(), HttpStatus.NOT_FOUND.value(),
+				request.getDescription(false));
 
+		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
 
+	}
 
 }
