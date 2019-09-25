@@ -15,6 +15,15 @@ public class MailService {
 		this.javaMailSender = javaMailSender;
 	}
 
+	public void sendOTPEmail(String emailId, String message) {
+		SimpleMailMessage mail = new SimpleMailMessage();
+		mail.setTo(emailId);
+		mail.setSubject("INGTMRW Model Bank");
+
+		mail.setText("The OTP for Making Transfer" + " " + message);
+		javaMailSender.send(mail);
+	}
+
 	public void sendEmail(String emailId, String userId, String password) {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setTo(emailId);
@@ -22,8 +31,5 @@ public class MailService {
 		mail.setText("Login Credentials \n " + "UserId : " + userId + "\n Password :" + password);
 		javaMailSender.send(mail);
 	}
-
-	
-
 
 }
