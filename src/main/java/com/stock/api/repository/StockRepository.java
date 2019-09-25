@@ -10,3 +10,4 @@ public interface StockRepository extends JpaRepository<Stock, Integer>{
 
 	public Stock findByStockId(int stockId);
 }
+

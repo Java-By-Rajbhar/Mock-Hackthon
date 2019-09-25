@@ -20,5 +20,9 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerId;
+	private String customerName;
+	private String mobile;
+	private String email;
+	private String password;
 
 }

@@ -1,10 +1,16 @@
 package com.stock.api.service;
 
 import java.io.IOException;
+import java.util.List;
 
-import com.stock.api.dto.StockResponseDto;
+import com.stock.api.dto.StockPriceResponseDto;
+import com.stock.api.dto.StockResponseDTO;
 
 public interface StockService {
 
-	public StockResponseDto getStockTotalPrice(int customerId, int stockId, int quantity) throws IOException;
+	public StockPriceResponseDto getStockTotalPrice(int customerId, int stockId, int quantity) throws IOException;
+
+
+	List<StockResponseDTO> viewAllStocks();
+
 }
