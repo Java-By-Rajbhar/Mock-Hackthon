@@ -1,7 +1,5 @@
 package com.stock.api.dto;
 
-import java.time.LocalDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,9 +12,8 @@ import lombok.Setter;
 public class CustomerStockRequestDTO {
 
 	private Integer stockId;
-	private String stockName;
 	private Integer quantity;
+	private Integer customerId;
 	private Double totalPrice;
-	private LocalDate purchasedDate;
 
 }

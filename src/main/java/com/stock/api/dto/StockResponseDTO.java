@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class StockResponseDTO {
 	private Integer stockId;
 	private String stockName;

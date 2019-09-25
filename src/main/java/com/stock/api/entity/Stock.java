@@ -11,8 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-
 @Entity
 @Table
 @Setter
@@ -28,5 +26,4 @@ public class Stock {
 	private Double unitPrice;
 	private String description;
 	private Integer availableStocks;
-
 }
