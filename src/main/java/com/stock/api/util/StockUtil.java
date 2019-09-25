@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class StockUtil {
+	
+	public static final  String INVALID_CUSTOMER_EXCEPTION="No purchased history available ";
+
 	public static final String INVALID_USER_EXCEPTION = "Invalid user !!!!";
 
 	public static final String INVALID_EMAIL_OR_PASSWORD = "Invalid email or password !!!";
