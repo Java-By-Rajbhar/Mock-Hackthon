@@ -17,8 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @RequestMapping("/api")
 @RestController
-@CrossOrigin(allowedHeaders = { "*", "*/" }, origins = { "*", "*/" })
 @Slf4j
+@CrossOrigin(allowedHeaders = { "*", "/" }, origins = { "*", "/" }) 
+
 public class StockController {
 	@Autowired
 	StockService stockService;
